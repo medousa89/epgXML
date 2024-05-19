@@ -35,6 +35,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run script
         run: |
+          rm -rf epg.xml.xz
           wget "https://ext.greektv.app/epg/epg.xml"
           xz -v epg.xml
           rm -rf epg.xml
