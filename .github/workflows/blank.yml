@@ -37,6 +37,7 @@ jobs:
         run: |
           rm -rf epg.xml.xz
           wget "https://ext.greektv.app/epg/epg.xml"
+          echo "<!--time=` TZ='Europe/Athens' date ` -->" >> epg.xml
           xz -v epg.xml
           rm -rf epg.xml
           ls
@@ -58,8 +59,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: "./epg.xml.xz"
           asset_name: "epg.xml.xz"
-          title: "Release: $tag"
           tag: 'epg'
-          required: true
           overwrite: true
-          draft: true
+      
